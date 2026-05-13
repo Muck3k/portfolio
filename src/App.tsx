@@ -262,9 +262,6 @@ export default function Portfolio() {
               <p className="text-sm font-medium uppercase tracking-[0.3em] text-blue-300">
                 Projects
               </p>
-              <h2 className="mt-3 text-4xl font-bold text-white">
-                Selected Work
-              </h2>
             </div>
           </FadeIn>
 

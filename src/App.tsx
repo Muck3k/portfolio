@@ -1,30 +1,47 @@
-import React from "react";
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 
-import { Mail, Smartphone, Users, Code2, Database, ExternalLink } from "lucide-react";
+import {
+  Mail,
+  Smartphone,
+  Users,
+  Code2,
+  Database,
+  ExternalLink,
+} from "lucide-react";
 
-function Card({ children, className = "" }) {
+type BasicProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+type ButtonProps = BasicProps & {
+  href?: string;
+};
+
+function Card({ children, className = "" }: BasicProps) {
   return <div className={className}>{children}</div>;
 }
 
-function CardContent({ children, className = "" }) {
+function CardContent({ children, className = "" }: BasicProps) {
   return <div className={className}>{children}</div>;
 }
 
-function Button({ children, className = "", href, ...props }) {
+function Button({ children, className = "", href }: ButtonProps) {
   if (href) {
     return (
-      <a className={className} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} {...props}>
+      <a
+        className={className}
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noreferrer" : undefined}
+      >
         {children}
       </a>
     );
   }
 
-  return (
-    <button className={className} {...props}>
-      {children}
-    </button>
-  );
+  return <button className={className}>{children}</button>;
 }
 
 const projects = [
